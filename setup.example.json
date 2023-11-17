@@ -1,3 +1,4 @@
 {
-    "hello": "echo 'hello world'"
+    "hello": "echo 'hello world'",
+    "edit": "vim ~/.config/rshortcuts/setup.json"
 }
