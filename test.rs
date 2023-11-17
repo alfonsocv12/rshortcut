@@ -1,0 +1,1 @@
+alias s='. /Users/alfonso/code/personal/shortcuts/s.sh'
