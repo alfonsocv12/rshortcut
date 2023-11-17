@@ -12,4 +12,15 @@ install:
 	cargo build --release
 	echo 'eval $$(${SHORTCUT_BIN} $$1)' > ${BASH_FILE}
 	chmod +x ${BASH_FILE}
-	alias s='. ${BASH_FILE}'
+	$(MAKE) permanent-alias
+	echo "Installed successfully"
+permanent-alias:
+	if [ ${HOME}/.bashrc ]; then \
+		echo "alias s='. ${BASH_FILE}'" >> ${HOME}/.bashrc; \
+	fi
+	if [ ${HOME}/.zshrc ]; then \
+		echo "alias s='. ${BASH_FILE}'" >> ${HOME}/.zshrc; \
+	fi
+	if [ ${HOME}/.bash_profile ]; then \
+		echo "alias s='. ${BASH_FILE}'" >> ${HOME}/.bash_profile; \
+	fi
