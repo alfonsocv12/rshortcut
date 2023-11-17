@@ -2,9 +2,9 @@
 
 ## Install
 
-* Pre requirements
- * [rustup](https://rustup.rs/)
- * make
+* Pre-requirements
+  * [rustup](https://rustup.rs/)
+  * make
 * clone repo
 * `make install`
 
