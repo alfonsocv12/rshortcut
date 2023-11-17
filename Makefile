@@ -1,6 +1,8 @@
 CURRENT_DIR := $(shell pwd)
 SHORTCUT_BIN = ${CURRENT_DIR}/target/release/shortcuts
 BASH_FILE = ${CURRENT_DIR}/s.sh
+ALIAS = alias s='. ${BASH_FILE}'
+BASE_ALIAS = echo "$(ALIAS)" >> ${HOME}/
 
 create-config:
 	mkdir -p ${HOME}/.config/rshortcuts
@@ -16,11 +18,14 @@ install:
 	echo "Installed successfully"
 permanent-alias:
 	if [ ${HOME}/.bashrc ]; then \
-		echo "alias s='. ${BASH_FILE}'" >> ${HOME}/.bashrc; \
+		${BASE_ALIAS}.bashrc; \
+		source ${HOME}/.bashrc; \
 	fi
 	if [ ${HOME}/.zshrc ]; then \
-		echo "alias s='. ${BASH_FILE}'" >> ${HOME}/.zshrc; \
+		${BASE_ALIAS}.zshrc; \
+		source ${HOME}/.zshrc; \
 	fi
 	if [ ${HOME}/.bash_profile ]; then \
-		echo "alias s='. ${BASH_FILE}'" >> ${HOME}/.bash_profile; \
+		${BASE_ALIAS}.bash_profile; \
+		source ${HOME}/.bash_profile; \
 	fi
